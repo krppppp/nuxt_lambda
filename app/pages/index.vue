@@ -1,9 +1,10 @@
 <template>
-  <section class="container">
+  <section class="container"  v-if="isReadyToDraw">
     <div>
       <logo />
       <h1 class="title">
         Nuxt.js on AWS Lambd
+        {{masterBook.id}}
       </h1>
       <h2 class="subtitle">
         Nuxt.js project
@@ -20,22 +21,7 @@
         </nuxt-link>
       </div>
     </div>
-    <ul>
-      <li v-for="todo in todos"
-:key="todo.id">
-        <input :checked="todo.done"
-@change="toggle(todo)" type="checkbox"
-/>
-        <span :class="{ done: todo.done }">{{ todo.text }}</span>
-        <button @click="removeTodo(todo)">
-          remove
-        </button>
-      </li>
-      <li>
-        <input
-placeholder="What needs to be done?" @keyup.enter="addTodo" />
-      </li>
-    </ul>
+
   </section>
 </template>
 
@@ -43,6 +29,7 @@ placeholder="What needs to be done?" @keyup.enter="addTodo" />
 import Logo from "~/components/Logo.vue";
 import { version as nuxtVersion } from "nuxt/package.json";
 import { mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -63,24 +50,21 @@ export default {
   computed: {
     nuxtVersion: () => nuxtVersion,
     buildNodeVersion: () => process.env.NODE_VERSION,
-    todos() {
-      return this.$store.state.todos.list;
-    }
+
+    isReadyToDraw() {
+      return this.masterBook.content;
+    },
+    ...mapGetters("ticketing", ["masterBook"]),
+    ...mapGetters("common", ["idToken"])
   },
-  mounted() {
+  async mounted() {
+    await this.$store.dispatch("ticketing/getMasterBook", {
+      id: 1
+    });
     console.log("object :>> ", this.$store.state);
   },
   methods: {
-    addTodo(e) {
-      this.$store.commit("todos/add", e.target.value);
-      e.target.value = "";
-    },
-    ...mapMutations({
-      toggle: "todos/toggle"
-    }),
-    removeTodo(todo) {
-      this.$store.commit("todos/remove", todo);
-    }
+
   }
 };
 </script>
