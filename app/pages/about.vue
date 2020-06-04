@@ -1,27 +1,45 @@
 <template>
-  <section class="container">
-    <div>
-      <h1>About Page</h1>
-      <div class="links">
-        <nuxt-link to="/">
-          Home
-        </nuxt-link>
-      </div>
-    </div>
-  </section>
+  <div>
+  a
+  </div>
 </template>
 
+<script>
+import { mapGetters } from "vuex";
+import CommonTools from "@/components/mixins/CommonTools.vue";
+import NativeHandler from "@/components/mixins/NativeHandler.vue";
+export default {
+  mixins: [NativeHandler, CommonTools],
+  async mounted() {
+    await this.getInformations();
+  },
+  methods: {
+    async getInformations() {
+      try {
+        console.log('this.$store :>> ', this.$store);
+        // await this.$store.commit('increment')
+// console.log('this.$store.state.masterBook :>> ', this.$store.ticketing);
+        await this.$store.dispatch("getMasterBook", {
+          id: 1
+        });
+      } catch (err) {
+        console.log('err :>> ', err);
+        console.log("だめ :");
+      }
+    },
+
+  },
+  
+};
+</script>
+
 <style scoped>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.content-wrapper {
+  padding-bottom: var(--sticky-height);
 }
 
-.links {
-  padding-top: 36px;
-  padding-bottom: 24px;
+p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 </style>

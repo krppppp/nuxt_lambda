@@ -1,17 +1,5 @@
-import Vuex from "vuex";
-
-import { common } from "./modules/common.js";
-
-export const state = () => ({
-  counter: 0
-});
-
-export const mutations = {
-  increment(state) {
-    state.counter++;
-  }
-};
-
+import Axios from "axios";
+import Vuex from 'vuex'
 
 const ticketing = () => {
   return new Vuex.Store({
@@ -301,7 +289,4 @@ const ticketing = () => {
 }
 
 export default ticketing
-
-console.log('ticketing :>> ', ticketing);
-
 
