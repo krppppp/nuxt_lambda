@@ -8,13 +8,13 @@ const isMyPage = url => {
 
 const cacheMiddleware = (req, res, next) => {
   if (isMyPage(req.url)) {
-    res.header('Cache-Control', 'no-store');
+    res.header("Cache-Control", "no-store");
   } else {
-    res.header('Cache-Control', `max-age=${60}`); // 1分間
+    res.header("Cache-Control", `max-age=${60}`); // 1分間
   }
   next();
 };
 
 module.exports = {
-  cacheMiddleware,
+  cacheMiddleware
 };

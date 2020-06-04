@@ -17,8 +17,8 @@ export default {
   props: {
     error: {
       type: Object,
-      default: null,
-    },
+      default: null
+    }
   },
 
   computed: {
@@ -29,11 +29,11 @@ export default {
     // for generage error page
     statusCode() {
       if (this.isModeGenerateErrorPage && this.error.path) {
-        return this.error.path.replace('/', '');
+        return this.error.path.replace("/", "");
       }
-      return '';
-    },
-  },
+      return "";
+    }
+  }
 };
 </script>
 

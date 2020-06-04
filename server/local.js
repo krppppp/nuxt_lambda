@@ -1,9 +1,9 @@
-const { app } = require('./app');
-const { nuxt, config } = require('./core/nuxt');
-const { Builder } = require('nuxt');
-const consola = require('consola');
+const { app } = require("./app");
+const { nuxt, config } = require("./core/nuxt");
+const { Builder } = require("nuxt");
+const consola = require("consola");
 
-const host = process.env.HOST || 'localhost';
+const host = process.env.HOST || "localhost";
 const port = process.env.PORT || 3000;
 
 const start = async () => {
@@ -15,7 +15,7 @@ const start = async () => {
   app.listen(port, host);
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
-    badge: true,
+    badge: true
   });
 };
 

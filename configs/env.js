@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 
-const endpointEnv = process.env.ENDPOINT_ENV || 'cf';
+const endpointEnv = process.env.ENDPOINT_ENV || "cf";
 
 const ENV = {
-  STAGE: 'dev',
-  BASE_URL: '',
+  STAGE: "dev",
+  BASE_URL: "",
   ENDPOINT_ENV: endpointEnv,
-  NODE_ENV: process.env.NODE_ENV || '',
-  GENERATE_ERROR_PAGE: Boolean(process.env.GENERATE_ERROR_PAGE),
+  NODE_ENV: process.env.NODE_ENV || "",
+  GENERATE_ERROR_PAGE: Boolean(process.env.GENERATE_ERROR_PAGE)
 };
 
-if (endpointEnv === 'api_gw') {
+if (endpointEnv === "api_gw") {
   ENV.BASE_URL = `/${ENV.STAGE}/`;
 }
 
@@ -21,5 +21,5 @@ const exporter = () => {
 
 module.exports = {
   ENV,
-  exporter,
+  exporter
 };

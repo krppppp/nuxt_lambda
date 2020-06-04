@@ -1,4 +1,4 @@
-const { ENV } = require('./configs/env');
+const { ENV } = require("./configs/env");
 
 const routerConfig = {};
 if (ENV.BASE_URL) {
@@ -7,16 +7,16 @@ if (ENV.BASE_URL) {
 
 const generate = {};
 if (ENV.GENERATE_ERROR_PAGE) {
-  generate.routes = ['/403', '/404', '/500'];
+  generate.routes = ["/403", "/404", "/500"];
 }
 
 module.exports = {
-  mode: 'universal',
+  mode: "universal",
 
-  srcDir: 'app',
+  srcDir: "app",
 
   router: {
-    ...routerConfig,
+    ...routerConfig
   },
 
   render: {
@@ -26,25 +26,25 @@ module.exports = {
      */
     compressor: (req, res, next) => {
       next();
-    },
+    }
   },
 
   /*
    ** Headers of the page
    */
   head: {
-    title: 'Nuxt.js on AWS Lambda',
+    title: "Nuxt.js on AWS Lambda",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "Nuxt.js project" }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/assets/favicon.ico' }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/assets/favicon.ico" }]
   },
   /*
    ** Customize the progress bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: "#fff" },
   /*
    ** Global CSS
    */
@@ -71,19 +71,19 @@ module.exports = {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
+          loader: "eslint-loader",
+          exclude: /(node_modules)/
         });
       }
-    },
+    }
   },
 
   generate,
 
   env: {
     GENERATE_ERROR_PAGE: ENV.GENERATE_ERROR_PAGE,
-    NODE_VERSION: process.versions.node,
-  },
+    NODE_VERSION: process.versions.node
+  }
 };
