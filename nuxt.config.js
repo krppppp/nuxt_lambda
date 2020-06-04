@@ -48,13 +48,12 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["@/assets/scss/base.scss"],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
-
+  plugins: ["plugins/partials"],
   /*
    ** Nuxt.js modules
    */

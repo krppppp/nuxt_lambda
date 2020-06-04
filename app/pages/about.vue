@@ -6,10 +6,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import CommonTools from "@/components/mixins/CommonTools.vue";
-import NativeHandler from "@/components/mixins/NativeHandler.vue";
 export default {
-  mixins: [NativeHandler, CommonTools],
   async mounted() {
     await this.getInformations();
   },

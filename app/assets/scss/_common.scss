@@ -1,0 +1,744 @@
+/* ---------------------------------------- */
+/* 共通 */
+/* ---------------------------------------- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "游ゴシック体", YuGothic, "Yu Gothic Medium", sans-serif;
+}
+
+body.ticket-detail {
+  padding-bottom: 100px;
+  color: var(--text-color);
+  background: var(--bg-color);
+}
+
+body:not(.ticket-detail) section {
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ---------------------------------------- */
+/* ヘッダー */
+/* ---------------------------------------- */
+header {
+  height: 60px;
+  padding: 40px 0 60px 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* ヘッダーの見出し */
+header h1 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ヘッダーの戻るボタン */
+header .icon.icon-back {
+  position: absolute;
+  display: block;
+  top: 42px;
+  left: 24px;
+  width: 16px;
+  height: 16px;
+  background-image: url('/images/arrow-left-white.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-decoration: none;
+}
+
+header .icon.icon-back:hover,
+header .icon.icon-back:active,
+header .icon.icon-back:focus {
+  text-decoration: none;
+}
+
+/* チケット詳細画面 - メインビジュアル画像 */
+.heading-image {
+  width: 100%;
+  height: 260px;
+  background-color: #e0e0e0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* ---------------------------------------- */
+/* セクション */
+/* ---------------------------------------- */
+
+
+section {
+
+}
+
+.section-bg-white{
+  margin: 15px;
+  border-radius: 4px;
+  background-color: var(--section-bg-color);
+  padding: 15px;
+  font-size: 11px;
+  color: var(--section-text-color);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);  box-shadow: 0px 1px 6px #737373;
+}
+
+/* 最初のセクション（画像とオーバーレイ） */
+.section-top {
+  margin: 15px;
+  border-radius: 4px;
+  background-color: var(--section-bg-color);
+  padding: 15px;
+  font-size: 11px;
+  color: var(--section-text-color);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);  box-shadow: 0px 1px 6px #737373;
+  margin-top: -90px;
+  padding-bottom: 25px;
+}
+
+/* 最初のセクション（画像とオーバーレイしない） */
+body:not(.ticket-detail) .section-top {
+  margin-top: -80px;
+}
+
+/* チケットの画像表示用セクション */
+section.ticket-top {
+  margin-top: -80px;
+  padding: 0;
+}
+
+/* チケットの画像表示用セクション - チケットの画像/QRコードなど */
+section.ticket-top img {
+  display: block;
+  width: 100%;
+  background-color: #f0f0e0;
+  border-radius: 4px;
+}
+
+/* チケットの画像表示用セクション - 有効期限 */
+section.ticket-top .available {
+  padding: 0 0 30px 0;
+  text-align: center;
+  line-height: 1.2em;
+  font-size: 3em;
+  color: #f99803;
+}
+
+/* チケットの画像表示用セクション - 確認用コードなどの文字列 */
+section.ticket-top .ticket-code {
+  padding: 0 0 30px 0;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* セクションの見出し */
+.section-top h1.title {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.section-top div.title {
+  margin: 0 0 5px;
+  font-weight: bold;
+}
+
+/* セクションのテキスト */
+.section-top .description {
+  line-height: 17px;
+  color: var(--section-text-color);
+}
+
+/* セクションの見出し */
+.section-bg-white h1.title {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.section-bg-white div.title {
+  margin: 0 0 5px;
+  font-weight: bold;
+}
+
+/* セクションのテキスト */
+.section-bg-white .description {
+  line-height: 17px;
+  color: var(--section-text-color);
+}
+
+/* セクションの区切り線 */
+section hr {
+  border-top-color: var(--section-hr-color);
+}
+
+
+/* チケット利用画面 */
+body.ticket-use {
+  background-color: var(--ticket-use-bg-color);
+}
+
+body.ticket-use .current-timestamp {
+  padding: 30px 0 45px 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+
+/* ---------------------------------------- */
+/* 段組カラム */
+/* ---------------------------------------- */
+.columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* チケットの価格の段組 */
+.columns-price {
+  padding: 5px 0 0 0;
+}
+
+/* チケットの価格ラベル */
+.columns-price .label {
+  font-size: 11px;
+  color: var(--section-text-color);
+}
+.columns-price .price {
+  font-size: 21px;
+  font-weight: bold;
+  color: var(--section-noticable-color);
+}
+
+.columns .column {
+  display: flex;
+  align-items: center;
+}
+
+.columns .column.column-label {
+  width: 80px;
+  margin-right: 20px;
+  font-size: 11px;
+  color: #A0A0A6;
+}
+
+.columns .column.column-value {
+  width: calc( 100% - 80px - 20px );
+  font-size: 20px;
+}
+
+body.ticket-confirm {
+}
+
+body.ticket-confirm section.section-top .message {
+  margin: 10px 0;
+  font-size: 11px;
+  line-height: 17px;
+}
+
+body.ticket-confirm section.section-top .columns {
+  display: flex;
+  justify-content: left;
+  margin: 15px 0;
+}
+
+body.ticket-confirm section.section-top .columns .label {
+  width: 80px;
+  font-size: 11px;
+  color: var(--section-sub-text-color);
+}
+
+body.ticket-confirm section.section-top .columns .value {
+  width: calc( 100% - 80px );
+  font-size: 14px;
+}
+
+body.ticket-confirm section.section-top .text {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+
+
+.section-bg-white .columns {
+  display: flex;
+  justify-content: left;
+  margin: 15px 0;
+}
+
+.section-bg-white .columns .label {
+  width: 80px;
+  font-size: 11px;
+  color: var(--section-sub-text-color);
+}
+
+.section-bg-white .columns .value {
+  width: calc( 100% - 80px );
+  font-size: 14px;
+}
+
+.section-bg-white .text {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+
+
+/* ---------------------------------------- */
+/* リボン形式の見出し */
+/* ---------------------------------------- */
+h2.ribbon {
+  height: 21px;
+  margin: 20px 0 10px 15px;
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: var(--ribbon-border-color);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: var(--ribbon-bg-color);
+  padding-left: 40px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 21px;
+  color: var(--ribbon-text-color);
+}
+
+h2.ribbon:before {
+  position: absolute;
+  display: block;
+  content: '';
+  left: 15px;
+  height: 21px;
+  width: 21px;
+  margin-top: -2px;
+  border: 2px solid var(--ribbon-border-color);
+  border-radius: 50%;  
+  background-color: var(--ribbon-accent-bg-color);
+}
+
+/* ---------------------------------------- */
+/* ボタンコンポーネント */
+/* ---------------------------------------- */
+.button {
+  display: block;
+  margin: 15px;
+  border-radius: 4px;
+  padding: 12px 30px 12px 10px;
+  background-color: var(--button-bg-color);
+  background-image: url('~@/assets/img//arrow/svg/arow-right-black.svg');
+  background-repeat: no-repeat;
+  background-position: calc( 100% - 12px ) center;
+  background-size: 8px;
+  color: var(--button-text-color);
+  text-decoration: none;
+}
+
+
+
+.button:hover, .button:active, .button:focus {
+  text-decoration: none;
+}
+
+/* ボタンのタイトル */
+.button .title {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ボタンのテキスト */
+/* [NOTE] ボタンのタイトルと組み合わせて使用 */
+.button .description {
+  margin-top: 7px;
+  font-size: 11px;
+  line-height: 17px;
+}
+
+/* ---------------------------------------- */
+/* 購入手続きボタン */
+/* ---------------------------------------- */
+.buy-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 150px;
+  border-radius: 50px;
+  background-color: #0884FF;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* カートアイコン */
+.buy-button .icon {
+  display: block;
+  margin-right: 10px;
+}
+.buy-button .icon img {
+  width: 22px;
+}
+
+/* 購入手続きラベル */
+.buy-button .label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.buy-button:hover, .buy-button:active, .buy-button:focus {
+  text-decoration: none;
+}
+
+/* ---------------------------------------- */
+/* フォームコンポーネント */
+/* ---------------------------------------- */
+.form-group {
+  position: relative;
+  margin: 10px 0;
+}
+
+/* ラベル */
+.form-group .label {
+  font-size: 11px;
+  color: #A0A0A6;
+}
+
+/* テキストフィールドと日付フィールド */
+.form-group input[type=text],
+.form-group input[type=date] {
+  -webkit-appearance: none;
+  width: calc( 100% - 20px - 2px );
+  height: 39px;
+  margin-bottom: 10px;
+  border: 1px solid var(--input-field-border-color);
+  border-radius: 0;
+  background-color: var(--input-field-bg-color);
+  outline: none;
+  padding: 9px 10px;
+  font-size: 16px;
+  color: var(--input-field-text-color);
+}
+
+.form-group input[type=text]:focus,
+.form-group input[type=date]:focus {
+  border: 1px solid var(--input-field-active-border-color);
+}
+
+.form-group input[type=date] {
+  width: calc( 100% - 20px - 2px );
+  height: 36px;
+  padding: 0 10px;
+  background-image: url('/images/icon-calendar.svg');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: calc( 100% - 10px ) center;
+}
+
+/* セレクトボックス */
+.form-group select {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 39px;
+  margin-bottom: 0;
+  border: 1px solid var(--input-field-border-color);
+  border-radius: 0;
+  background-color: var(--input-field-bg-color);
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--input-field-text-color);
+}
+
+.form-group select:focus {
+  border-color: var(--input-field-active-border-color);
+}
+
+.form-group .select-wrap {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-radius: 0;
+}
+
+.form-group .select-wrap::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 0px;
+  border-bottom: solid 2px #b4b3b3;
+  border-right: solid 2px #b4b3b3;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  margin-top: -6px;
+}
+
+.form-group.include-label .select-wrap select {
+  padding-left: 120px;
+}
+
+/* ヘルプブロック*/
+.help {
+  margin-top: -2px;
+  margin-bottom: 15px;
+  text-align: right;
+  font-size: 11px;
+  color: var(--help-text-color);
+}
+
+/* フォームコンポーネント用ラベル */
+/* [ コンポーネント組み込み型ラベル ] */
+.form-group.include-label .label {
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 16px;
+  z-index: 10;
+}
+
+/* フォームコンポーネント用ラベル */
+/* [ テキストフィールド組み込みラベル ] */
+.form-group.include-label input[type=text] {
+  width: calc( 100% - 20px - 2px - 70px );
+  padding-left: 80px;
+}
+
+/* フォームコンポーネント用ラベル */
+/* [ セレクトボックス組み込みラベル ] */
+.form-group.include-label .select-wrap .label {
+  top: 14px;
+  left: 9px;
+}
+
+/* フォームコンポーネント用ラベル */
+/* [ 通常のラベル ] */
+.form-group:not(.include-label) .label {
+  margin-bottom: 5px;
+}
+
+/* アクション */
+.actions {
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* ---------------------------------------- */
+/* ボタン */
+/* ---------------------------------------- */
+.btn {
+  width: 200px;
+  height: 42px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 50px;
+  background-color: #e0e0e0;
+  background-image: url('~@/assets/img//arrow/svg/arow-right-black.svg');
+  background-size: 8px;
+  background-repeat: no-repeat;
+  background-position: calc( 100% - 12px ) center;
+  line-height: 42px;
+  font-size: 14px;
+  display: block;
+  font-weight: bold;
+  margin: 10px auto 0;
+}
+
+/* 確認ボタン */
+.btn.btn-confirm {
+  background-color: var(--button-bg-color);
+  background-image: url('~@/assets/img//arrow/svg/arow-right-black.svg');
+  color: #000000;
+  font-weight: bold;
+}
+
+/* プライマリーボタン */
+.btn.btn-primary {
+  background-color: var(--button-bg-color);
+  background-image: url('~@/assets/img//arrow/svg/arow-right-black.svg');
+  color: var(--button-text-color);
+}
+
+.btn.btn-primary[disabled] {
+  background-color: #e0e0e0;
+  color: var(--button-text-color);
+}
+
+.btn.btn-start-using-ticket {
+  width: 280px;
+  height: 56px;
+  margin-top: 25px;
+  background-position: calc( 100% - 16px ) center;
+  display: block;
+}
+
+.btn.btn-cancel {
+  margin-top: 15px;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.btn-refund {
+  background-color: white;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------
+//
+//  ダイアログ
+//
+------------------------------------------------------------------------------------------------------------------ */
+/* ダイアログの背景 */
+.dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index:100;
+}
+
+/* ダイアログ包む＆ダイアログ下余白 */
+.dialog-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index:101;
+
+}
+
+.dialog-wrapper::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: calc(var(--tab-height) + 1rem);
+}
+
+/* ダイアログ */
+.dialog {
+  margin-top: calc(var(--navigation-height) + 1rem);
+  margin-left: 0rem;
+  margin-right: 0rem;
+  -webkit-box-shadow: 0.1875rem 0.25rem 1.6875rem #00000029;
+          box-shadow: 0.1875rem 0.25rem 1.6875rem #00000029;
+  border-radius: 0.4375rem;
+  background: #fff;
+  padding: 1.5rem 1.25rem;
+}
+
+.dialog .dialog_image-container {
+  font-size: 0;
+  text-align: center;
+}
+
+.dialog .dialog_image-container img {
+  width: 6.875rem;
+  height: 6.875rem;
+}
+
+
+
+.dialog .dialog_image-container + div>h2 {
+  margin-top: 0.75rem;
+}
+
+.dialog h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: black;
+}
+
+.dialog p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.dialog h2 + p {
+  margin-top: 1.5rem;
+}
+
+.dialog .dialog_image-container + h2 + p {
+  margin-top: 1rem;
+}
+
+.dialog p + p {
+  margin-top: 0.75rem;
+}
+
+.dialog .button-container {
+  margin: 1.5rem 0 0;
+}
+.dialog-wrapper {
+  position: fixed;
+  top: var(--navigation-height);
+  bottom: var(--tab-height);
+  max-height: calc(100vh - var(--navigation-height) - var(--tab-height));
+}
+
+.dialog-wrapper .dialog {
+  position: absolute;
+  top: 50%;
+  left: 1.5rem;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  margin-top: 0;
+  max-height: calc(100% - 2rem);
+  overflow-y: auto;
+}
+
+
+/* タイトルを固定する時 */
+.dialog .fixed-title {
+  position: -webkit-sticky;
+  position: sticky;
+  margin-top: -1.5rem;
+  top: -1.5rem;
+  left: 0;
+  background: #fff;
+  padding-top: 1.25rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: -0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+.ticket-card {
+  display: block;
+  margin: 15px;
+  border-radius: 4px;
+  padding: 12px 10px 12px 10px;
+  background-color: var(--section-bg-color);
+  background-size: 8px;
+  color: var(--button-text-color);
+  text-decoration: none;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+  .title{
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--section-noticable-color);
+  }
+  .description {
+    color: var(--section-text-color);
+    margin-top: 7px;
+    font-size: 11px;
+    line-height: 17px;
+  }
+}

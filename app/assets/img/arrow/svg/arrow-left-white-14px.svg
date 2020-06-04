@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Backアイコン_-_影" data-name="Backアイコン - 影" transform="translate(101.513 3.859) rotate(90)">
+    <rect id="長方形_307" data-name="長方形 307" class="cls-1" width="14" height="14" transform="translate(-3.859 101.513) rotate(-90)"/>
+    <path id="パス_9" data-name="パス 9" class="cls-2" d="M4.887,102.711a.682.682,0,0,1-.484-.2l-4.2-4.2a.684.684,0,0,1,.968-.968l3.718,3.718L8.6,97.341a.684.684,0,0,1,.968.968l-4.2,4.2A.682.682,0,0,1,4.887,102.711Z" transform="translate(-1.974 -4.767)"/>
+  </g>
+</svg>

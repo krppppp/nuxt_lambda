@@ -1,0 +1,31 @@
+body.ticket-confirm {
+}
+
+body.ticket-confirm section.section-top .message {
+  margin: 10px 0;
+  font-size: 11px;
+  line-height: 17px;
+}
+
+body.ticket-confirm section.section-top .columns {
+  display: flex;
+  justify-content: left;
+  margin: 15px 0;
+}
+
+body.ticket-confirm section.section-top .columns .label {
+  width: 80px;
+  font-size: 11px;
+  color: var(--section-sub-text-color);
+}
+
+body.ticket-confirm section.section-top .columns .value {
+  width: calc( 100% - 80px );
+  font-size: 14px;
+}
+
+body.ticket-confirm section.section-top .text {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 21px;
+}

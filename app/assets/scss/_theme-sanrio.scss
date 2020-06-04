@@ -1,0 +1,52 @@
+body {
+  --bg-color: #E791A2;
+  --sanrio-bg-color: #96C2EA;
+  --text-color: #ffffff;
+  --section-bg-color: #ffffff;
+  --section-text-color: #000000;
+  --section-sub-text-color: #918D8E;
+  --section-noticable-color: #E791A2;
+  --section-hr-color: #E7E7EE;
+  --ribbon-border-color: #F8B6C3;
+  --ribbon-bg-color: #ffffff;
+  --ribbon-accent-bg-color: #ffffff;
+  --ribbon-text-color: #E791A2;
+  --button-bg-color: #ffffff;
+  --button-text-color: #E791A2;
+  --button-border-color: #E791A2;
+  --input-field-bg-color: #ffffff;
+  --input-field-border-color: #E7E7EE;
+  --input-field-text-color: #000000;
+  --input-field-active-border-color: #f99803;
+  --help-text-color: #918D8E;
+}
+
+.button {
+  border: 2px solid var(--button-border-color);
+  background-image: url('/images/arrow-right-sanrio-pink.svg');
+}
+
+.buy-button {
+  background-color: #96C2EA;
+}
+
+header {
+  background-color: var(--bg-color);
+}
+
+body:not(.ticket-detail) {
+  background-color: var(--sanrio-bg-color);
+}
+
+.btn.btn-confirm,
+.btn.btn-primary {
+  border: 2px solid var(--button-border-color);
+  background-color: #ffffff;
+  background-image: url('/images/arrow-right-sanrio-pink.svg');
+  line-height: 38px;
+  color: var(--button-text-color);
+}
+
+.btn.btn-buying {
+  line-height: 16px;
+}
