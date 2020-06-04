@@ -9,9 +9,7 @@
       <h2 class="subtitle">
         Nuxt.js project
       </h2>
-      <button @click="$store.commit('increment')">
-        {{ $store.state.counter }}
-      </button>
+
       <p>Nuxt.js version: {{ nuxtVersion }}</p>
       <p>Build Node.js version: {{ buildNodeVersion }}</p>
       <p>Server Node.js version: {{ serverNodeVersion }}</p>

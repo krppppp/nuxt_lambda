@@ -11,7 +11,79 @@
         :style="
           backgroundImageFromApi(masterBook.content.ticket_detail_image_url)
         "
-      ></div>
+      />
+      <section class="section-top section-bg-white">
+        <h1 class="title">
+          {{ masterBook.name }}
+        </h1>
+        <div class="description">
+          <p>
+            {{ masterBook.comment }}
+          </p>
+        </div>
+        <hr />
+        <div class="columns columns-price" style="margin-bottom: 0;">
+          <div class="label label-price">料金</div>
+          <div class="price" style="white-space: pre-line;line-height: 1.5rem;">
+            {{ masterBook.display_price }}
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 注意 -->
+      <section
+        v-if="masterBook.id != 3 && masterBook.id != 4"
+        class=" section-bg-white"
+      >
+        <div class="title">値段に関する注意</div>
+        <div class="description">
+          <p>
+            {{ masterBook.display_price_comment }}
+          </p>
+        </div>
+      </section>
+
+        <!-- 特徴・メニュー -->
+      <TheFeatureAndOther :masterBook="masterBook" />
+
+      <!-- 含まれるチケット -->
+      <section class="included-ticktes-index">
+        <h2 class="ribbon">含まれるチケット</h2>
+        <item-ticket-card
+          :passes="sort(masterBook.passes)"
+          :sheets="sort(masterBook.sheets)"
+        />
+      </section>
+
+      <!-- その他 -->
+      <section>
+        <h2 class="ribbon">その他</h2>
+
+        <!-- チケット規約 -->
+        <a
+          @click="goToExternalLink($t(masterBook.content.terms_url))"
+          class="button"
+        >
+          <div class="title">利用規約</div>
+        </a>
+        <!-- 利用できる場所 -->
+        <a
+          v-if="masterBook.id == 3 || masterBook.id == 4"
+          @click="goToTargetStore"
+          class="button"
+        >
+          <div class="title">利用可能箇所</div>
+        </a>
+      </section>
+
+      <!-- 購入手続きボタン -->
+      <button class="buy-button" @click="goToBooksBooking()">
+        <div class="icon">
+          <img :src="require(`@/assets/img/icon/svg/icon-cart-white.svg`)" />
+        </div>
+        <div class="label">購入手続きへ</div>
+      </button>
     </template>
   </div>
 </template>
@@ -29,7 +101,7 @@ export default {
     async getInformations() {
       try {
         await this.$store.dispatch("ticketing/getMasterBook", {
-          id: 120
+          id: this.$route.params.id
         });
       } catch (err) {
         this.$refs.invalidPageAccess.open();
@@ -54,7 +126,7 @@ export default {
         document.body.classList.remove("ticket-detail");
         this.$router.push({
           name: "BookBooking",
-          params: { id: 120 },
+          params: { id: this.$route.params.id },
           query: { language: this.$store.getters["common/lang"] }
         });
       }
@@ -62,7 +134,7 @@ export default {
     goToTargetStore() {
       this.$router.push({
         name: "BookTargetStore",
-        params: { id: 120 },
+        params: { id: this.$route.params.id },
         query: { language: this.$store.getters["common/lang"] }
       });
     }
