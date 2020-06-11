@@ -1,10 +1,9 @@
 <template>
-  <section class="container"  v-if="isReadyToDraw">
+  <section class="container">
     <div>
       <logo />
       <h1 class="title">
         Nuxt.js on AWS Lambd
-        {{masterBook.id}}
       </h1>
       <h2 class="subtitle">
         Nuxt.js project
@@ -48,19 +47,8 @@ export default {
   computed: {
     nuxtVersion: () => nuxtVersion,
     buildNodeVersion: () => process.env.NODE_VERSION,
+  },
 
-    isReadyToDraw() {
-      return this.masterBook.content;
-    },
-    ...mapGetters("ticketing", ["masterBook"]),
-    ...mapGetters("common", ["idToken"])
-  },
-  async mounted() {
-    await this.$store.dispatch("ticketing/getMasterBook", {
-      id: 1
-    });
-    console.log("object :>> ", this.$store.state);
-  },
   methods: {
 
   }
