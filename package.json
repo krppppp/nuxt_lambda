@@ -24,10 +24,12 @@
     "aws-serverless-express": "^3.3.8",
     "cross-env": "^7.0.2",
     "express": "^4.16.4",
+    "node-sass": "^4.14.1",
     "nuxt": "^2.12.2",
-    "node-sass": "^4.14.1"
+    "nuxt-i18n": "^6.12.2"
   },
   "devDependencies": {
+    "@nuxtjs/moment": "^1.6.1",
     "@vue/cli-plugin-eslint": "^4.3.1",
     "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-prettier": "^6.0.0",

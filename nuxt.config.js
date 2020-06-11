@@ -57,8 +57,9 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [["@nuxtjs/moment", ["ja"]]],
-
+  modules: [
+    ['@nuxtjs/moment', ['ja']]
+  ],
   /*
    ** Build configuration
    */
